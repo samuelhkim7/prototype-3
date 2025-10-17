@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Job Applications</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Pull to Refresh Indicator -->
+    <div class="pull-to-refresh" id="pullToRefresh">
+        <div class="refresh-spinner"></div>
+        <span>Pull to refresh</span>
+    </div>
+
+    <div class="app-container">
+        <!-- Collapsible Stats Header -->
+        <header class="stats-header" id="statsHeader">
+            <div class="header-toggle" id="headerToggle">
+                <h1>My Applications</h1>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="stats-content" id="statsContent">
+                <div class="stat-card total">
+                    <div class="stat-number" id="totalApps">0</div>
+                    <div class="stat-label">Total Applications</div>
+                </div>
+                <div class="stat-card pending">
+                    <div class="stat-number" id="pendingApps">0</div>
+                    <div class="stat-label">Pending</div>
+                </div>
+                <div class="stat-card interview">
+                    <div class="stat-number" id="interviewApps">0</div>
+                    <div class="stat-label">Interviews</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Active Filter Display -->
+        <div class="active-filter" id="activeFilter">
+            <span>Showing: <strong id="filterText">All Applications</strong></span>
+            <button class="clear-filter" id="clearFilter">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- Swipe Indicator -->
+        <div class="swipe-hint" id="swipeHint">
+            <i class="fas fa-hand-pointer"></i>
+            <span>Swipe left or right to filter by status</span>
+        </div>
+
+        <!-- Applications Feed -->
+        <main class="applications-feed" id="applicationsFeed">
+            <!-- Cards will be dynamically inserted here -->
+        </main>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <i class="fas fa-inbox"></i>
+            <h3>No applications found</h3>
+            <p>Try adjusting your filters</p>
+        </div>
+
+        <!-- Floating Action Button for Filters -->
+        <button class="fab" id="fabButton">
+            <i class="fas fa-filter"></i>
+        </button>
+
+        <!-- Filter Modal -->
+        <div class="filter-modal" id="filterModal">
+            <div class="filter-content">
+                <div class="filter-header">
+                    <h2>Filter Applications</h2>
+                    <button class="close-modal" id="closeModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="filter-options">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-th-large"></i>
+                        <span>All Applications</span>
+                    </button>
+                    <button class="filter-btn" data-filter="pending">
+                        <i class="fas fa-clock"></i>
+                        <span>Pending</span>
+                    </button>
+                    <button class="filter-btn" data-filter="interview">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Interview</span>
+                    </button>
+                    <button class="filter-btn" data-filter="rejected">
+                        <i class="fas fa-times-circle"></i>
+                        <span>Rejected</span>
+                    </button>
+                    <button class="filter-btn" data-filter="accepted">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Accepted</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
